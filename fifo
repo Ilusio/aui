@@ -61,8 +61,7 @@ select_editor(){
 #MIRRORLIST {{{
 configure_mirrorlist(){
   # better repo should go first
-  cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.tmp
-  cp ./mirrorlist > /etc/pacman.d/mirrorlist
+  cp ./mirrorlist /etc/pacman.d/mirrorlist
   # allow global read access (required for non-root yaourt execution)
   chmod +r /etc/pacman.d/mirrorlist
   $EDITOR /etc/pacman.d/mirrorlist
