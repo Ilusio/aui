@@ -30,8 +30,8 @@ for OPT in ${partition_name[@]}; do
 done
 
 for number in ${partition_choice[@]}; do
-    echo $number
-    echo $partitions_list[$number]
+    echo "$number"
+    echo "$partitions_list[$number]"
 done
 #loadkeys fr-pc
 #timedatectl set-ntp true
