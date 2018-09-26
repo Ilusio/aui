@@ -4,7 +4,7 @@
 ##
 
 ## France
-#Server = http://archlinux.de-labrusse.fr/$repo/os/$arch
+Server = http://archlinux.de-labrusse.fr/$repo/os/$arch
 #Server = http://mirror.archlinux.ikoula.com/archlinux/$repo/os/$arch
 #Server = http://archlinux.vi-di.fr/$repo/os/$arch
 #Server = https://archlinux.vi-di.fr/$repo/os/$arch
