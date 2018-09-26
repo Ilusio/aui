@@ -28,15 +28,15 @@ for name in ${partition_name[@]}; do
       done
 done
 
-mkfs.vfat -F32 $partition_choice[0]
-mkswap $partition_choice[1]
-mkfs.ext4 $partition_choice[2]
-mkfs.ext4 $partition_choice[3]
+mkfs.vfat -F32 ${partition_choice[0]}
+mkswap ${partition_choice[1]}
+mkfs.ext4 ${partition_choice[2]}
+mkfs.ext4 ${partition_choice[3]}
 
-mount $partition_choice[2] /mnt
-swapon $partition_choice[1]
-mkdir /mnt/home && mount $partition_choice[3] /mnt/home
-mkdir -p /mnt/boot/efi && mount -t vfat $partition_choice[0] /mnt/boot/efi
+mount ${partition_choice[2]} /mnt
+swapon ${partition_choice[1]}
+mkdir /mnt/home && mount ${partition_choice[3]} /mnt/home
+mkdir -p /mnt/boot/efi && mount -t vfat ${partition_choice[0]} /mnt/boot/efi
 #loadkeys fr-pc
 #timedatectl set-ntp true
 #cp ./mirrorlist /etc/pacman.d/mirrorlist
