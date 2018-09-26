@@ -26,6 +26,7 @@ for name in ${partition_name[@]}; do
       select partition in "${partitions_list[@]}"; do
         #get the selected number - 1
         partition_choice += $partition
+        break
       done
 done
 
