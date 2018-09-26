@@ -1,12 +1,14 @@
 #!/bin/bash
 
-block_list=(`lsblk | grep 'part\|lvm' | awk '{print substr($1,3)}'`)
+# change keyboard layout
+loadkeys fr-pc
 
-# check if there is no partition
-if [[ ${#block_list[@]} -eq 0 ]]; then
-    echo "No partition found"
-    exit 0
-fi
+#update time
+timedatectl set-ntp true
+
+
+# get partition
+block_list=(`lsblk | grep 'part\|lvm' | awk '{print substr($1,3)}'`)
 
 partitions_list=()
 for OPT in ${block_list[@]}; do
@@ -18,6 +20,7 @@ else
 fi
 done
 
+# choose partitions
 partition_name=("boot" "swap" "root" "home")
 partition_choice=()
 for name in ${partition_name[@]}; do
@@ -28,16 +31,36 @@ for name in ${partition_name[@]}; do
       done
 done
 
+# format
 mkfs.vfat -F32 ${partition_choice[0]}
 mkswap ${partition_choice[1]}
 mkfs.ext4 ${partition_choice[2]}
 mkfs.ext4 ${partition_choice[3]}
 
+# mount
 mount ${partition_choice[2]} /mnt
 swapon ${partition_choice[1]}
 mkdir /mnt/home && mount ${partition_choice[3]} /mnt/home
 mkdir -p /mnt/boot/efi && mount -t vfat ${partition_choice[0]} /mnt/boot/efi
-#loadkeys fr-pc
-#timedatectl set-ntp true
-#cp ./mirrorlist /etc/pacman.d/mirrorlist
-#chmod +r /etc/pacman.d/mirrorlist
+
+# mirror list
+cp ./mirrorlist /etc/pacman.d/mirrorlist
+chmod +r /etc/pacman.d/mirrorlist
+
+# installation 
+pacstrap /mnt base base-devel  wireless_tools wpa_supplicant dialog
+
+#configuration
+genfstab -U -p /mnt >> /mnt/etc/fstab
+arch-chroot /mnt
+read hostname
+echo $hostname > /etc/hostname
+echo "127.0.1.1 $hostname.localdomain $hostname" >> /etc/hosts
+ln -sf /usr/share/zoneinfo/Europe/Paris /etc/localtime
+cp ./locale.gen /etc/locale.gen
+locale-gen
+echo LANG="en_US.UTF-8" > /etc/locale.conf
+export LANG=en_US.UTF-8
+echo KEYMAP=fr > /etc/vconsole.conf
+mkinitcpio -p linux
+passwd
