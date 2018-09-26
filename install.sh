@@ -19,20 +19,24 @@ fi
 done
 
 partition_name=("boot" "swap" "root" "home")
-partitions_choice=()
+partition_choice=()
 i=0
-for OPT in ${partition_name[@]}; do
-    echo -e "Select ${BYellow}${partition_name[i]}${Reset} partition:\n"
+for name in ${partition_name[@]}; do
+    echo -e "Select ${BYellow}${name}${Reset} partition:\n"
       select partition in "${partitions_list[@]}"; do
         #get the selected number - 1
-        partition_choice+=$(( $REPLY - 1 ))
-    i=$(( i + 1 ))
+        partition_choice += $partition
 done
 
-for number in ${partition_choice[@]}; do
-    echo "$number"
-    echo "$partitions_list[$number]"
-done
+mkfs.vfat -F32 $partition_choice[0]
+mkswap $partition_choice[1]
+mkfs.ext4 $partition_choice[2]
+mkfs.ext4 $partition_choice[3]
+
+mount $partition_choice[2] /mnt
+swapon $partition_choice[1]
+mkdir /mnt/home && mount $partition_choice[3] /mnt/home
+mkdir -p /mnt/boot/efi && mount -t vfat $partition_choice[0] /mnt/boot/efi
 #loadkeys fr-pc
 #timedatectl set-ntp true
 #cp ./mirrorlist /etc/pacman.d/mirrorlist
