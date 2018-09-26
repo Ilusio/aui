@@ -20,12 +20,10 @@ done
 
 partition_name=("boot" "swap" "root" "home")
 partition_choice=()
-i=0
 for name in ${partition_name[@]}; do
     echo -e "Select ${BYellow}${name}${Reset} partition:\n"
       select partition in "${partitions_list[@]}"; do
-        #get the selected number - 1
-        partition_choice += $partition
+        partition_choice+=($partition)
         break
       done
 done
