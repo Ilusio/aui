@@ -51,5 +51,5 @@ chmod +r /etc/pacman.d/mirrorlist
 pacstrap /mnt base base-devel  wireless_tools wpa_supplicant dialog
 
 #configuration
-#genfstab -U -p /mnt >> /mnt/etc/fstab
-#arch-chroot /mnt
+genfstab -U -p /mnt >> /mnt/etc/fstab
+arch-chroot /mnt
