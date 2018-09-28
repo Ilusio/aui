@@ -15,13 +15,15 @@ yaourt -Sy --noconfirm bspwm zsh alacritty oh-my-zsh-git polybar sddm qt5 ttf-fi
 
 git clone https://github.com/Eayu/sddm-theme-clairvoyance
 sudo mv sddm-theme-clairvoyance /usr/share/sddm/themes/clairvoyance
-'
+
 
 
 mkdir -p ~/.config/
 cp -r ./.config/ ~/.config/
 
 cp ./.Xresources ~/
+cp ./.xinitrc ~/
 
 mkdir -p ~/Pictures
 cp -r ./Wallpaper ~/Pictures/
+'
