@@ -1,0 +1,2 @@
+setxkbmap fr
+exec bspwm
