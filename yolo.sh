@@ -11,7 +11,7 @@ cd ..
 rm -rf package-query
 rm -rf yaourt
 
-yaourt -Sy --noconfirm bspwm zsh alacritty oh-my-zsh-git polybar sddm qt5 ttf-fira-mono i3lock rofi sxhkd feh mpd compton
+yaourt -Sy --noconfirm bspwm zsh alacritty oh-my-zsh-git polybar sddm qt5 ttf-fira-mono i3lock rofi sxhkd feh mpd compton xorg-xrandr
 
 git clone https://github.com/Eayu/sddm-theme-clairvoyance
 sudo mv sddm-theme-clairvoyance /usr/share/sddm/themes/clairvoyance
@@ -27,3 +27,9 @@ cp ./.xinitrc ~/
 mkdir -p ~/Pictures
 cp -r ./Wallpaper ~/Pictures/
 '
+
+chmod 755 ~/config/bspwm/bspwmrc
+chmod 755 ~/config/sxhkd/sxhkdrc
+chmod 755 ~/.fehbg
+cp -r ./.config/ ~/.config/
+yaourt -Sy ttf-fira-mono dina-font ttf-font-awesome mpc gnome-calendar
