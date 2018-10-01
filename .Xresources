@@ -10,28 +10,28 @@ URxvt*cursorUnderline: true
 
 URxvt*internalBorder: 20 
 
-*color0:                  #383544
-*color1:                  #DAA169
-*color2:                  #6C7C82
-*color3:                  #778489
-*color4:                  #A09894
-*color5:                  #D3B29D
-*color6:                  #F0CCA4
-*color7:                  #FCE4D5
-*color9:                  #999999
-*color8:                  #DAA169
-*color10:                 #6C7C82
-*color11:                 #778489
-*color12:                 #A09894
-*color13:                 #D3B29D
-*color14:                 #F0CCA4
-*color15:                 #FCE4D5
+*color0:#282a2e              
+*color1:#A54242            
+*color2:#8C9440            
+*color3:#de935f          
+*color4:#5F819D          
+*color5:#85678F           
+*color6:#5E8D87           
+*color7:#969896          
+*color8:#373b41          
+*color9:#cc6666         
+*color10:#b5bd68          
+*color11:#f0c674         
+*color12:#81a2be          
+*color13:#b294bb          
+*color14:#8abeb7        
+*color15:#c5c8c6         
 
-*background:              #383544
-*foreground:              #A09894
+*background: #141414
+*foreground: #94a3a5
 
 rofi.font: xos4\ Terminus 14
-rofi.color-window: argb:80191919, argb:60181818, #1919191
-rofi.color-normal: argb:0095C7AE, #A09894, argb:0095C7AE, argb:80101218, #95C7A
+rofi.color-window: argb:80191919, argb:60181818, #191919
+rofi.color-normal: argb:0095C7AE, #A09894, argb:0095C7AE, argb:80101218, #95C7A0
 rofi.padding: 400
 rofi.separator-style: none
