@@ -12,9 +12,10 @@ font-0 = FiraMono:style=Regular:size=9;1
 font-2 = Dina:style=Regular:pixelsize=13;1
 font-1 = FontAwesome:fontformat=truetype:size=8;1
 
+
 wm-name = topbar
 
-modules-left = bspwm
+modules-left = bspwm battery wired-network wireless-network
 modules-center = date
 modules-right = song 
 
@@ -58,3 +59,34 @@ label-empty = %icon%
 label-empty-foreground = #FFFFFF
 label-empty-underline = #FFFFFF
 label-empty-padding = 2
+
+
+[module/battery]
+type = internal/battery
+
+; This is useful in case the battery never reports 100% charge
+full-at = 99
+
+; Use the following command to list batteries and adapters:
+; $ ls -1 /sys/class/power_supply/
+battery = BAT0
+adapter = AC
+
+; If an inotify event haven't been reported in this many
+; seconds, manually poll for new values.
+;
+; Needed as a fallback for systems that don't report events
+; on sysfs/procfs.
+;
+; Disable polling by setting the interval to 0.
+;
+; Default: 5
+poll-interval = 5
+
+[module/wired-network]
+type = internal/network
+interface = enp0s25
+
+[module/wireless-network]
+type = internal/network
+interface = wlp3s0
