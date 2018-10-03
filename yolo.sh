@@ -32,8 +32,11 @@ chmod 755 ~/config/bspwm/bspwmrc
 chmod 755 ~/config/sxhkd/sxhkdrc
 chmod 755 ~/.fehbg
 cp -r ./.config/ ~/.config/
-yaourt -Sy ttf-fira-mono dina-font ttf-font-awesome-4 mpc gnome-calendar alsa-utils dunstify dunst light
+yaourt -Sy ttf-fira-mono dina-font ttf-font-awesome-4 mpc gnome-calendar alsa-utils dunstify dunst light ncmpcpp
 
 cp -r ./.scripts ~
 chmod 755 ~/.scripts/*
 '
+git clone https://github.com/BlackLight/mopidy-spotify.git
+cd mopidy-spotify
+sudo python2 setup.py install
