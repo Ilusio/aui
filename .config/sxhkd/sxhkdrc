@@ -24,12 +24,18 @@ super + BackSpace
 Print
 	scrot ~/Pictures/Screenshots/%d-%b-%Y%H%M%S.png
 
+XF86AudioMute
+	~/.scripts/volumeControl.sh mute 
 
-super + Up
-    ~/.scripts/volume-up.sh
+XF86AudioMicMute
+    amixer set Capture toggle > /dev/null
 
-super + Down
-	~/.scripts/volume-down.sh
+XF86Audio{Raise,Lower}Volume
+    ~/.scripts/volumeControl.sh {up,down} 
+
+# Change screen brightness
+XF86MonBrightness{Up,Down}
+	~/.scripts/brightnessControl.sh {up,down}
 
 super + Right
     mpc next >/dev/null
@@ -90,7 +96,7 @@ super + {_,shift + }c
 super + bracket{left,right}
 	bspc desktop -f {prev,next}
 
-# focus the last node/desktop
+# focus the last node/desktop'
 super + {grave,Tab}
 	bspc {node,desktop} -f last
 
@@ -101,7 +107,7 @@ super + {o,i}
 	bspc wm -h on
 
 # focus or send to the given desktop
-super + {_,shift + }{1-9,0}
+super + {_,alt + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
 #

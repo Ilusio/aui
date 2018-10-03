@@ -26,10 +26,14 @@ cp ./.xinitrc ~/
 
 mkdir -p ~/Pictures
 cp -r ./Wallpaper ~/Pictures/
-'
+
 
 chmod 755 ~/config/bspwm/bspwmrc
 chmod 755 ~/config/sxhkd/sxhkdrc
 chmod 755 ~/.fehbg
 cp -r ./.config/ ~/.config/
-yaourt -Sy ttf-fira-mono dina-font ttf-font-awesome mpc gnome-calendar
+yaourt -Sy ttf-fira-mono dina-font ttf-font-awesome-4 mpc gnome-calendar alsa-utils dunstify dunst light
+
+cp -r ./.scripts ~
+chmod 755 ~/.scripts/*
+'
