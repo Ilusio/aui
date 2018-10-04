@@ -4,11 +4,12 @@ setxkbmap fr
 xsetroot -cursor_name left_ptr
 xrdb ~/.Xresources
 compton &
-mpd &
 polybar top &
 ~/.fehbg &
 sxhkd &
-redshift -l 48.5734:7.7521 &
+dunst &
+mopidy &
+redshift -c ~/.config/redshift/redshift.conf &
 
 bspc config border_width         0
 bspc config normal_border_color  "#191919"
