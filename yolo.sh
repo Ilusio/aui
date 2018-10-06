@@ -40,3 +40,5 @@ chmod 755 ~/.scripts/*
 git clone https://github.com/BlackLight/mopidy-spotify.git
 cd mopidy-spotify
 sudo python2 setup.py install
+
+localectl set-x11-keymap fr

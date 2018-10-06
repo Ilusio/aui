@@ -26,7 +26,7 @@ bspc config click_to_focus       true
 bspc config pointer_mod mod1
 bspc config pointer_action1 move
 
-bspc monitor -d Internet Code Music Games Other
+bspc monitor -d Terminal Internet Code Code2 Music PDF Other
 
 bspc config top_padding 30
 bspc config bottom_padding 0

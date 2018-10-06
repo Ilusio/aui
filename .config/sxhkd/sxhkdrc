@@ -19,7 +19,7 @@ super + Escape
 
 # Blur Lock:
 super + BackSpace 
-	~/.scripts/lock.sh
+	i3lock-fancy -t ""
 
 Print
 	scrot ~/Pictures/Screenshots/%d-%b-%Y%H%M%S.png
