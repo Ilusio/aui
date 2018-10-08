@@ -34,8 +34,10 @@ done
 # format
 mkfs.vfat -F32 ${partition_choice[0]}
 mkswap ${partition_choice[1]}
-mkfs.ext4 ${partition_choice[2]}
-mkfs.ext4 ${partition_choice[3]}
+cryptsetup -s 512 -h sha512 luksFormat --type luks2 ${partition_choice[2]}
+cryptsetup -s 512 -h sha512 luksFormat --type luks2 ${partition_choice[3]}
+#mkfs.ext4 ${partition_choice[2]}
+#mkfs.ext4 ${partition_choice[3]}
 
 # mount
 mount ${partition_choice[2]} /mnt
