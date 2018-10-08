@@ -1,4 +1,5 @@
-:'git clone https://aur.archlinux.org/package-query.git
+: '
+git clone https://aur.archlinux.org/package-query.git
 cd package-query
 yes | makepkg -si
 cd ..
@@ -18,8 +19,10 @@ cd fonts
 cd ..
 rm -rf fonts
 
+'
+
 git clone https://github.com/Eayu/sddm-theme-clairvoyance
-mkdir -p /usr/share/sddm/themes/'
+mkdir -p /usr/share/sddm/themes/
 sudo mv sddm-theme-clairvoyance /usr/share/sddm/themes/clairvoyance
 sudo cp ./sddm.conf /etc/
 sudo cp ./Background.jpg /usr/share/sddm/themes/clairvoyance/Assets
