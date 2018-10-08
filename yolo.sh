@@ -38,8 +38,8 @@ mkdir -p ~/Pictures
 cp -r ./Wallpaper ~/Pictures/
 
 
-chmod 755 ~/config/bspwm/bspwmrc
-chmod 755 ~/config/sxhkd/sxhkdrc
+chmod 755 ~/.config/bspwm/bspwmrc
+chmod 755 ~/.config/sxhkd/sxhkdrc
 chmod 755 ~/.fehbg
 
 chmod 755 ~/.scripts/*
