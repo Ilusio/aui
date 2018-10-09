@@ -21,3 +21,4 @@ grub-mkconfig -o /boot/grub/grub.cfg
 useradd -G root -m jm
 echo "jm ALL=(ALL) ALL" >> /etc/sudoers
 echo "jm ALL=(root) NOPASSWD: /sbin/poweroff, /sbin/reboot, /sbin/shutdown, /usr/bin/pacman -Syu" >> /etc/sudoers
+passwd jm
