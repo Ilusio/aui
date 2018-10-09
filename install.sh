@@ -35,7 +35,7 @@ done
 mkfs.vfat -F32 ${partition_choice[0]}
 mkswap ${partition_choice[1]}
 cryptsetup -s 512 -h sha512 luksFormat --type luks2 ${partition_choice[2]}
-cryptsetup open ${partition_choice[2]}cryptroot
+cryptsetup open ${partition_choice[2]} cryptroot
 mkfs.ext4 /dev/mapper/cryptroot
 
 #cryptsetup -s 512 -h sha512 luksFormat --type luks2 ${partition_choice[3]}
@@ -43,7 +43,7 @@ mkfs.ext4 /dev/mapper/cryptroot
 #mkfs.ext4 ${partition_choice[3]}
 
 # mount
-mount ${partition_choice[2]} /mnt
+mount /dev/mapper/cryptroot /mnt
 swapon ${partition_choice[1]}
 mkdir -p /mnt/boot/efi && mount -t vfat ${partition_choice[0]} /mnt/boot/efi
 
