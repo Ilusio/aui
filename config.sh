@@ -10,7 +10,7 @@ locale-gen
 echo LANG="en_US.UTF-8" > /etc/locale.conf
 export LANG=en_US.UTF-8
 echo KEYMAP=fr > /etc/vconsole.conf
-mkinitcpio -c ./mkinitcpio.conf
+mkinitcpio -p linux -A keyboard, keymap, encrypt, lvm2
 passwd
 
 pacman -S grub efibootmgr git vim
